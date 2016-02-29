@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+function alarm(hr2,min2,appm) {
+	now=new Date();	hour=now.getHours();
+	min=now.getMinutes();
+	sec=now.getSeconds();
+	if (min<=9) {	min="0"+min; }
+	if (sec<=9) {	sec="0"+sec; }
+	if (hour>12) {	hour=hour-12;	add="pm"; }
+	else {	hour=hour;	add="am"; }
+	if (hour==12) {	add="pm"; }
+	if (hour==00) {	hour="12"; }
+	 hr1 = (hour<=9) ? "0"+hour : hour;  min1 = min;  apm1= add;
+	 console.log(hr1+':'+min1+':'+sec+':'+apm1);
+	if ((hr1 == hr2) && (min1 == min2) &&(apm1 == appm)) { alert('Time4alaram'); return null; } 
+	document.body.innerHTML = '';
+	document.write("Current Time "+hr1+':'+min1+':'+sec+':'+apm1+" ");
+	document.write("<br/>Alaram Time "+hr2+':'+min2+':'+appm+" ");
+ 	setTimeout("alarm("+hr2+","+min2+",'"+appm+"')", 1000);
+ }
+ alarm('03','05','pm');
+</script>
+
+</body>
+</html>
